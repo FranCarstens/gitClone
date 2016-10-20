@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Roboto, Helvetica, Arial, Sans-Serif;
+	font-weight: 400;
+	color: #767676;
+	line-height: 175%;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+}
+h1 {
+	font-size: 1.25rem;
+	margin: 0;
+}
+
+a, a:link, a:visited, a:hover {
+	text-decoration: none;
+	color: #3075BC;
+}
+strong {
+	color: #3075BC;
+}
+header {
+	border-bottom: 1px solid #3075BC;
+	padding: 2rem;
+}
+content {
+	display:block;
+	max-width: 1280px;
+	margin: 3rem auto;
+	font-size: 0;
+}
+img {
+	width: 100%;
+	max-width: 100%;
+}
+input {
+	background-color: #FDFDFD;
+	padding: 0.5rem 1rem;
+	border: 1px solid #C8E2FF;
+	border-radius: 5px;
+	width: 5.8rem;
+}
+input:focus, input:hover {
+	outline: none;
+	border: 1px solid #3075BC;
+	width: 13rem;
+	transition: width 0.5s ease-in-out;
+}
+
+
+.banner {
+	max-width: 1280px;
+	margin: 0 auto;
+	text-align: right;
+}
+.banner h2 {
+	float:left;
+	color: #3075BC;
+	margin: 0 0 0 2rem;
+}
+.banner h2 span {
+	font-weight: 700;
+}
+
+.icon-search {
+	color: #CCC;
+}
+
+#profile, #repos {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 1rem;
+}
+.profile_section {
+	border-bottom: 1px solid #EEE;
+	margin: 0 1rem;
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+	font-size: 1rem;
+}
+
+#profile img {
+	border-radius: 7px;
+	margin-bottom: 1rem;
+}
+h1 span {
+	display: block;
+}
+span.profile_name { font-size: 1.75rem; font-weight: 700; color: #333; }
+p.bio { color: #858585; font-size: .9rem }
+
+.repo {
+	font-size: 0.9375rem;
+	border-bottom: 1px solid #EEE;
+}
+
+.repo:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.repo div {
+	float:left;
+	padding: 2rem 1rem;
+	display: table-cell;
+}
+.repo div:not(.repo_name) {
+	white-space: nowrap;
+}
+
+.repo div:nth-child(1){ width: 60%;}
+.repo div:nth-child(2){ width: 15%; }
+.repo div:nth-child(3){ width: 15%; }
+.repo div:nth-child(4){ width: 10%; }
+
+.repo_name a {
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.repo_language span {
+	float: left;
+	width: .75rem;
+	height: .75rem;
+	border-radius: 50%;
+	margin: 0.375rem .5rem .375rem 0;
+}
+.repo_language.HTML span {
+	background-color: #e44b23;
+}
+.repo_language.JavaScript span {
+	background-color: #f1e05a;
+}
+.repo_language.CoffeeScript span {
+	background-color: #A79689;
+}
+.repo_language.Ruby span {
+	background-color: #8042BE;
+}
+.repo_language.CSS span {
+	background-color: #BEB942;
+}
+.repo_language.Java span {
+	background-color: #403E05;
+}
+.repo_language.Shell span {
+	background-color: #000
+}
+.repo_language.Python span {
+	background-color: #098F1C;
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+
+	.repo div.repo_activity {
+		display: none;
+	}
+	.repo div:nth-child(1){ width: 60%; }
+	.repo div:nth-child(2){ width: 0%; }
+	.repo div:nth-child(3){ width: 25%; }
+	.repo div:nth-child(4){ width: 15%; }
+
+}
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+	.profile_section img  {
+		width: 50%;
+	}
+	.profile_section .profile_main {
+		width: 100%;
+	}
+
+
+}
+
+@media (min-width: 481px) and (max-width: 960px) {
+
+	#profile {
+		font-size: 0;
+		border-bottom: 1px solid #EEE;
+	}
+	.profile_section:nth-child(1) {
+		width: 63.5%;
+		margin: 0 1.25%;
+	}
+	.profile_section:nth-child(2) {
+		width: 31.5%;
+		margin: 0 1.25%;
+	}
+	.profile_section, img, .profile_section .profile_main {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 1rem;
+		border-bottom: none;
+	}
+
+	.profile_section img  {
+		margin: 0 3% 0 1.25%;
+	}
+	.profile_section .profile_main {
+		margin: 0 1.25%;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 960px) {
+
+	.profile_section img  {
+		width: 31.5%;
+	}
+	.profile_section .profile_main {
+		width: 60%;
+	}
+}
+
+@media (min-width: 961px) {
+	#profile {
+		width: 22.5%;
+		margin:0 1.25%;
+	}
+	#repos {
+		width: 72.5%;
+		margin:0 1.25%;
+	}
+}
