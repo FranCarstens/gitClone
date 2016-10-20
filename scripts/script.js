@@ -14,11 +14,17 @@
 var gitBaseUrl = "https://api.github.com/users/",
 	gitProfile = "https://api.github.com/users/matthiasak?",
 	gitRepos = "https://api.github.com/users/matthiasak/repos?",
-	accessToken = "access_token=" + the_token,
 	profileNode = document.querySelector("#profile"),
 	reposNode = document.querySelector("#repos ul"),
-	searchNode = document.querySelector("input#search")
+	searchNode = document.querySelector("input#search"),
 	enter = 13
+	//github token remove
+	try {
+	var accessToken = "access_token=" + the_token
+	}
+	catch (error) {
+		var accessToken = ""	
+	}
 
 var dateBuilder = function(dateInput) {
 	var dateNew = new Date(dateInput),
