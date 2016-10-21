@@ -20,7 +20,7 @@ var gitBaseUrl = "https://api.github.com/users/",
 	enter = 13
 	//github token remove
 	try {
-	var accessToken = "access_token=" + the_token
+		var accessToken = "access_token=" + the_token
 	}
 	catch (error) {
 		var accessToken = ""	
@@ -41,8 +41,8 @@ var profileBuilder = function(profileArray) {
 	htmlString += '<div class="profile_section">'
 	htmlString += '<img src="' + profileArray.avatar_url + '" />'
 	htmlString += '<div class="profile_main"><h1>'
-	htmlString += profileArray.name ? '<span class="profile_name">' + profileArray.name + '</span>' : ""
-	htmlString += '<span class="profile_user">' + profileArray.login + '</span></h1>'
+	htmlString += profileArray.name ? '<span class="profile_name"><a href="' + profileArray.html_url + '">' + profileArray.name + '</a></span>' : ""
+	htmlString += '<span class="profile_user"><a href="' + profileArray.html_url + '">' + profileArray.login + '</a></span></h1>'
 	htmlString += profileArray.bio ? '<p class="bio">' + profileArray.bio + '</p>' : ""
 	htmlString += '</div></div><div class="profile_section">'
 	htmlString += '<ul>'
@@ -85,24 +85,33 @@ var repoBuilder = function(reposArray) {
 
 var profileResponseHandler = function(apiResponse) {
 	htmlString = profileBuilder(apiResponse)
+	console.log(apiResponse)
 }
 
 var reposResponseHandler = function(apiResponse) {
 	htmlString = repoBuilder(apiResponse)
 }
 
+var profileErrorHandler = function() {
+	profileNode.innerHTML = '<h2>Whoops!</h2><p>We were unable to locate the user you\'re searching for. Maybe try the Yellow Pages?</p>'
+}
+
 var fetchProfile = function(searchQuery) {
 	var url = ""
 	searchQuery ? url = searchQuery : url = gitProfile + accessToken
 	var promise = $.getJSON(url)
-	promise.then(profileResponseHandler)
+	promise.then(profileResponseHandler,profileErrorHandler)
+}
+
+var reposErrorHandler = function() {
+	reposNode.innerHTML = '<p>No public repos found.</p>'
 }
 
 var fetchRepos = function(searchQuery) {
 	var url = ""
 	searchQuery ? url = searchQuery : url = gitRepos + accessToken
 	var promise = $.getJSON(url)
-	promise.then(reposResponseHandler)
+	promise.then(reposResponseHandler,reposErrorHandler)
 }
 
 var searchUsers = function(keyPressed) {

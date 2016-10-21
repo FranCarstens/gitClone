@@ -18,11 +18,15 @@ h1 {
 	font-size: 1.25rem;
 	margin: 0;
 }
+h1 a, h1 a:link, h1 a:visited {
+	color: #767676;
+}
 
 a, a:link, a:visited, a:hover {
 	text-decoration: none;
 	color: #3075BC;
 }
+
 strong {
 	color: #3075BC;
 }
@@ -93,7 +97,7 @@ input:focus, input:hover {
 h1 span {
 	display: block;
 }
-span.profile_name { font-size: 1.75rem; font-weight: 700; color: #333; }
+span.profile_name a { font-size: 1.75rem; font-weight: 700; color: #333; }
 p.bio { color: #858585; font-size: .9rem }
 
 .repo {
