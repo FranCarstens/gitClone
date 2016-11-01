@@ -50,6 +50,7 @@ input {
 	border: 1px solid #C8E2FF;
 	border-radius: 5px;
 	width: 5.8rem;
+	transition: width 0.5s ease-in-out;
 }
 input:focus, input:hover {
 	outline: none;
